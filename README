@@ -1,0 +1,32 @@
+prettytiles
+=============
+
+  * Watch: http://gamejs.org/apps/prettytiles/
+  * Code: https://github.com/oberhamsi/prettytiles-gamejs
+
+CPU heavy landscape generator ported from Processing to GameJs. Nerlin noise generated on the fly.
+
+Yar, from opengameart, made those super pretty ISO tiles. binarymillenium wrote an elegant landscape generator for Processing (java). I, oberhamsi, had the simple task to part this generator to GameJs. Sean McCulloughs perlin noise generator was used for the the GameJs port.
+
+      /**
+       * binarymillenium
+       * November-December 2010
+       * GNU GPL v3
+       *
+       * 'w','a','s','d' to move.
+       *
+       * Art from http://opengameart.org/content/isometric-64x64-outside-tileset
+       * Yar
+       * CC-BY 3.0
+       *
+       * Feb 2010, <simon@nekapuzer.at> ported to GameJs
+       *
+       */
+
+      // perlin.js
+      // Ported from Stefan Gustavson's java implementation
+      // http://staffwww.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf
+      // Read Stefan's excellent paper for details on how this code works.
+      //
+      // Sean McCullough banksean@gmail.com
+      // https://gist.github.com/304522
