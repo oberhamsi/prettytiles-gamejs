@@ -14,23 +14,22 @@
  */
 
 var gamejs = require('gamejs');
+var Simplex = require('gamejs/math/noise').Simplex;
+var Alea = require('gamejs/math/random').Alea;
 
-var perlin = require('./perlin');
+var simplex = new Simplex(new Alea());
 var idata = require('./imagedata');
 
 // setup noise fn
-var n = new perlin.ClassicalNoise();
 var noise = function() {
-   var r = 0.5 + n.noise.apply(n, arguments);
-   //if (r < 0 || r > 1) console.log(r);
+   var r = Math.abs(simplex.get3d.apply(simplex, arguments));
+   if (r < 0 || r > 1) console.log(r);
    return r;
 }
 
-var width = 940;
-var height = 560;
-
 function main() {
-   var display = gamejs.display.setMode([width, height]);
+   var display = gamejs.display.getSurface();
+   var [width, height] = display.getSize();
    idata.init();
 
    var ew_mv_size = 32;
@@ -79,10 +78,16 @@ function main() {
       return elevation;
    };
 
-   function draw() {
-      display.clear();
+   function draw(msDuration) {
+      // the algo only works with steps of tile size (ew_mv_size, ns_mv_size)
+      // so slow down or it's too fast for humans
+      t += msDuration;
+      if (t < 50) {
+         return;
+      }
+      t = 0;
 
-      //t += 0.00001;
+      display.clear();
       xoff += ew_mv_size;
       yoff -= ns_mv_size;
 
@@ -192,13 +197,10 @@ if (true) {
 }
 
 
-   function tick(msDuration) {
-      gamejs.event.get().forEach(handleEvent);
-      draw();
 
-   };
+   gamejs.event.onEvent(handleEvent);
 
-   gamejs.time.fpsCallback(tick, this, 7);
+   gamejs.onTick(draw);
 };
 
 

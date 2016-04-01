@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type=text/css>
+        body{
+           background:#fff;
+           color:#222;
+           margin:0px;
+           padding:0px;
+        }
+        #gjs-canvas {
+            border: 1px solid #ccc;
+            margin: 20px;
+            box-shadow: 14px 10px 30px 0px rgba(50, 50, 50, 0.75);
+            width: calc(100% - 40px);
+            height: calc(100% - 60px);
+            position: absolute;
+            /** automatically made visible once game is loaded **/
+            display:none;
+        }
+        .footer {
+            position:absolute;
+            top: calc(100% - 50px);
+        }
+        #gjs-loader {
+            height: 100%;
+            padding: 10% 0% 0% 30%;
+        }
+    </style>
+    <script src="./vendor/gamejs-2.0.2-min.js"></script>
+    <script>
+        require.setModuleRoot('./src/');
+        require.run('main')
+    </script>
+</head>
+<body>
+    <div>
+        <div id="gjs-loader">
+         <progress max=1 min=0 steps=0.1></progress>
+         <br/>Loading...
+        </div>
+        <canvas id="gjs-canvas"></canvas>
+        <p class="footer">
+            Powered by <a href="http://gamejs.org">GameJs</a>.
+        </p>
+    </div>
+</body>
+</html>
