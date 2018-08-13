@@ -6,7 +6,7 @@ prettytiles
 
 CPU heavy landscape generator ported from Processing to GameJs. Perlin noise generated on the fly.
 
-Yar, from opengameart, made those super pretty ISO tiles. binarymillenium wrote an elegant landscape generator for Processing (java). I, oberhamsi, had the simple task to port this generator to GameJs. Sean McCulloughs perlin noise generator was used for the the GameJs port.
+Yar, from opengameart, made those super pretty ISO tiles. binarymillenium wrote an elegant landscape generator for Processing (java). I, oberhamsi, had the simple task to port this generator to GameJs. Sean McCulloughs perlin noise generator was used for the GameJs port.
 
       /**
        * binarymillenium
